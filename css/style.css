@@ -1,0 +1,1855 @@
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  position: relative;
+  z-index: 10;
+  padding: 4rem;
+}
+
+body {
+  font-family: 'Sen';
+  font-weight: 200;
+  background: linear-gradient(
+    to bottom,
+    #2c2b35 25%,
+    #2d282b 50%,
+    #333835 100%
+  );
+  min-height: 100vh;
+  margin: 0;
+  background-attachment: fixed;
+background-size: cover;
+overscroll-behavior: none; 
+padding-top: 40px;
+
+
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+
+@font-face {
+  font-family: 'November';
+  src: url('fonts/November.otf') format('opentype');
+  font-display: swap;
+}
+
+/* SPLIT */
+
+.gradient-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1; /* must stay behind all content */
+}
+
+/* First noise layer */
+.gradient-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../img/005.png');
+  background-repeat: repeat;
+  opacity: 0.07;
+  z-index: 4;
+  
+}
+
+/* Second noise or pattern layer */
+.gradient-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../img/001.png');
+  background-repeat: repeat;
+  opacity: 0.03;
+  z-index: 4;
+  
+}
+
+/* Your blobs */
+/* .blob {
+  position: absolute;
+  width: 40vmax;
+height: 40vmax;
+  background: 
+  conic-gradient(from 90deg at 50% 50%, rgba(39, 44, 41, 0.05), transparent 75%),
+  radial-gradient(circle at 40% 40%, hsla(0, 0%, 74%, 0.2), transparent 60%),
+  linear-gradient(135deg, hsla(0, 0%, 53%, 0.2), transparent);
+filter: blur(80px);
+mix-blend-mode: screen;
+  border-radius: 50%;
+  filter: blur(40px);
+  mix-blend-mode: soft-light;
+  animation: swirl 100s ease-in-out infinite;
+  z-index: 1;  filter: blur(80px);
+} */
+
+
+
+.blob {
+  position: absolute;
+  width: 60vmax;
+  height: 60vmax;
+  background: linear-gradient(135deg, hsla(0, 0%, 100%, 0.5), hsla(0, 0%, 62%, 0.6));
+  border-radius: 50%;
+  filter: blur(120px); /* Large blur */
+  mix-blend-mode: screen; /* Or try lighten/overlay for different clash */
+  /* animation: swirl 30s ease-in-out infinite; */
+  z-index: 2;
+  scale: 1;
+}
+
+
+
+
+.blob2 {
+  top: 50%;
+  left: 60%;
+  animation-delay: 2s;
+  scale: 1.3; filter: blur(120px);
+}
+
+.blob3 {
+  top: 70%;
+  left: 30%;
+  animation-delay: 3s;
+  scale: 0.8; filter: blur(60px);
+}
+
+
+
+
+/* Keyframes for ethereal swirling */
+@keyframes swirl {
+  0%   { transform: translate(0, 0) scale(1) rotate(0deg); }
+  25%  { transform: translate(8%, -10%) scale(1.3) rotate(60deg); }
+  50%  { transform: translate(-12%, 5%) scale(0.9) rotate(120deg); }
+  75%  { transform: translate(6%, 12%) scale(1.1) rotate(180deg); }
+  100% { transform: translate(0, 0) scale(1) rotate(360deg); }
+}
+/* SPLIT */
+
+
+
+
+
+.project-page nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  z-index: 999;
+  background: #eeeeee ;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  /* Add these to prevent potential edge artifacts */
+  box-shadow: none;
+  border: none;
+  outline: none;
+  justify-content: space-between;
+  
+}
+
+.project-page nav a {
+color: #111;
+  
+}
+
+/* BLUR FADE EFFECT */
+.project-page nav::after {
+  content: "";
+  position: absolute;
+  bottom: -70px; /* Extend very far down */
+  left: 0;
+  width: 100%;
+  height: 90px; /* Large fade area */
+  pointer-events: none;
+  z-index: -1;
+  
+  /* Softer blur with higher spread */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
+  /* Match nav color but with slight transparency */
+  background: #eeeeee ;
+  
+  /* Extremely smooth gradient mask */
+  mask-image: linear-gradient(
+    to top,
+    transparent 0px,
+    black 70px,
+    black 100px,
+    transparent 160px
+  );
+  -webkit-mask-image: linear-gradient(
+    to top,
+    transparent 0px,
+    black 70px,
+    black 100px,
+    transparent 160px
+  );
+  
+  /* Prevent subpixel rendering issues */
+  transform: translateZ(0);
+}
+
+
+.project-page {   
+  font-family: 'Sen';
+  font-weight: 200;
+ background: #eeeeee ;
+  color: white;
+  overflow-x: hidden;
+  min-height: 100vh;
+  margin: 0;
+  background-attachment: fixed;
+background-size: cover;
+overscroll-behavior: none; 
+padding-top: 40px;
+overflow: visible;
+ overflow-x: hidden;
+
+
+}
+
+
+
+.project-page p {   
+  color: rgb(59, 59, 59);
+
+
+}
+
+.project-page h4, h1, h5  {
+
+  color: rgb(59, 59, 59);
+  font-weight: 600;
+}
+
+
+/* typography */
+p {
+     font-size: 1rem;
+    color: #e2e2e2;
+    
+
+
+}
+
+h1 { font-family: 'Sen';
+  font-weight: 300;
+  font-size: 3.2rem;
+  margin: 0;
+  padding:0;
+  color: #f8f8f8;
+
+
+}
+
+h2 { 
+    font-size: 1.7rem;
+    color: #f8f8f8;
+    margin-top: 2.5px;
+    margin-bottom:5px;
+    font-weight: 100;
+
+}
+
+h3 {font-size: 1.7rem; 
+    font-weight: 200;
+    margin-top: 5px;
+    color: #f8f8f8;
+
+}
+
+h5 {
+  font-family: 'Sen';
+  font-weight: 300;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  
+}
+
+
+
+/* Māori translate h4 */
+
+h4 {font-size: 0.9rem; 
+  margin-bottom: 0.5rem;
+    
+    font-weight: 300;
+    color: #ece9ff;
+
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.nav-toggle span {
+  display: block;
+  height: 3px;
+  width: 25px;
+  background: #fff;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  z-index: 999;
+
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  /* Add these to prevent potential edge artifacts */
+  box-shadow: none;
+  border: none;
+  outline: none;
+  justify-content: space-between;
+}
+
+/* BLUR FADE EFFECT */
+
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.nav-left {
+  flex: 1;
+}
+
+.contact-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+  .nav-toggle {
+    display: none;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #d7d7d7;
+    font-size: 1rem;
+
+    margin: 36px;
+    margin-top: 18px;
+    border-radius: 8px;
+    transition: background 0.9s ease;
+  }
+  
+  nav a:hover {
+    background-color: rgba(194, 194, 194, 0.1);
+  }
+
+
+
+
+.nav-selected {
+  font-weight: 600;
+  color: #ffffff;
+  
+
+}
+  
+
+
+
+
+  button {
+  font-family: 'Sen';
+  font-weight: 500;
+  width: auto;
+  border-radius: 13px;
+  margin-top: 1rem;
+  border: 2px solid #ffffff;
+  cursor: pointer;
+  background: none;
+  color: #ffffff;
+   padding: 0.5rem 1rem;
+
+}
+
+/* Button layout container */
+.buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Specific styles for each button */
+.button1 {
+  color: #5C5E69;
+  background-color: #ffffff;
+  height: 2.2rem;
+}
+
+.button2 {
+  color: #ffffff;
+  border-color: #ffffff;
+  height: 2.2rem;
+}
+
+.underscore { 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+
+header {position: relative;
+  padding-bottom: none;
+  padding-top: 3rem;
+
+  
+}
+
+
+
+.home-logo-container {
+
+  display: flex;
+  flex-direction: row;
+justify-content: center;
+}
+
+
+
+
+header img {
+  max-width: 70%;
+  height: auto;
+  margin-top: 1rem;
+  
+}
+
+.hero-head {
+
+  height: 100vh;
+}
+
+.hero-header { 
+  
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row; /* ⬅ flips content-image order */
+  padding: 1rem 8rem;
+  gap: 4rem;
+
+
+}
+
+.section-me {
+    padding-bottom: 7rem;
+    padding-top:2rem;
+    display: flex;
+    justify-content: space-around;
+    
+  }
+
+.section-left,
+.section-right {
+  display: flex;
+  align-items: stretch;   /* Keep consistent height */
+  padding: 0 62px;
+  gap: 2rem;
+}
+
+.section-left h5, .section-right h5 {
+  font-size: 1.25rem; /* or whatever suits your design */
+  line-height: 1.5;
+  max-width: 80ch; /* or 500px - keeps it readable */
+  word-break: normal;
+}
+
+/* Only flip the right section visually */
+.section-right {
+  flex-direction: row-reverse;
+}
+
+
+.section-atea {
+  opacity: 0;
+  transform: translateY(50px);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  padding: 128px;
+  padding-top: 224px; 
+  padding-bottom:0;
+}
+
+.mockup-section {
+  display: flex;
+  flex-direction: row; /* ⬅ flips content-image order */
+  align-items: center;
+  padding: 9rem 7rem;
+  margin-bottom: 50px;
+
+  margin-top: 30px;
+}
+
+.mockup-section .info-box {
+  flex: 1;
+  max-width: 600px; /* ✅ prevent text from stretching too wide */
+}
+
+.mockup-section .mockup-container {
+  flex: 1;
+  max-width: 600px;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mockup-container img {
+  width: 50%;
+  height: 50%;
+  object-fit: contain; /* shows full image, no crop */
+  border-radius: 1rem;
+}
+
+
+
+
+
+
+.info-box {
+  display: flex;
+  flex-direction: column;/* <-- This pushes content to the bottom */
+  height: 100%; 
+  max-width: 38vw;              /* Make sure it takes full height */
+}
+
+.info-box-2 {
+  display: flex;
+  flex-direction: column;/* <-- This pushes content to the bottom */
+  height: 100%; 
+  max-width: 38vw; 
+            
+}
+
+
+
+
+
+.info-image-container {
+  flex: 1;
+  position: relative;
+  aspect-ratio: 16 / 9;
+  min-height: 200px;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.info-image-container img {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.poupou-image { position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 130vh; /* Make it bigger */
+  top: 45vh;
+  z-index: -1; /* Push behind text */
+  pointer-events: none;
+ 
+
+
+}
+
+.poupou-image img {
+    height: auto;
+  width: 90vh; /* ⬅ controls image scale without stretching */
+  max-width: none; /* prevent shrinkage */
+  display: block;
+}
+
+
+.tiki-wrapper {
+  position: absolute;
+  top: -15%;
+  right: -10%;
+  left: auto;
+  z-index: -1;
+  overflow: visible; 
+
+  /* ✅ ADD THESE: */
+  width: 400px; 
+  height:fit-content;  /* or whatever fits your tiki image */
+  height: auto;
+  pointer-events: none; /* optional if needed */
+}
+
+.tiki-wrapper-2 {
+   position: absolute;
+  top: 55%;
+  right: -10%;
+  left: auto;
+  z-index: 10;
+  overflow: visible; 
+
+  /* ✅ ADD THESE: */
+  width: 400px; 
+  height:fit-content;  /* or whatever fits your tiki image */
+  height: auto;
+  pointer-events: none; /* optional if needed */
+   z-index: -1;
+}
+
+
+.tiki {
+  position: absolute;
+   /* starting point */
+  width: 550px;
+  max-width:700px;
+  height: auto;
+  overflow: visible; 
+  transform-origin: center center;
+}
+
+.tiki-2 {
+ 
+  position: absolute;
+  height:500px;
+  transform-origin: center center;
+  position: absolute;
+  
+  height: auto;
+  overflow: visible; 
+ 
+
+}
+
+
+.space-to-move { display: flex;
+  position: relative;}
+
+  .space-to-move-works { 
+    
+    display: flex;
+  position: relative;}
+
+  .tiki-wrapper-works {
+  position: absolute;
+  top: 50%;
+  right: -10%;
+  left: auto;
+  z-index: 10;
+  overflow: visible; 
+
+  /* ✅ ADD THESE: */
+  width: 400px; 
+  height:fit-content;  /* or whatever fits your tiki image */
+  height: auto;
+  pointer-events: none; /* optional if needed */
+}
+
+
+
+
+
+/* .tiki:hover {
+  transform: scale(1.05);
+} */
+
+/* .tiki-2 {
+  grid-column: 1;
+  grid-row: 2;
+}
+.tiki-3 {
+  grid-column: 3;
+  grid-row: 2;
+  margin:0;
+} */
+
+@keyframes slowFloat {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+.tiki {
+  animation: slowFloat 8s ease-in-out infinite;
+}
+
+.tiki-2 { animation-delay: 2s; }
+.tiki-3 { animation-delay: 4s; }
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+.tools {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  row-gap: 0.5rem;  /* tighter vertical spacing between rows */
+  column-gap: 1rem; /* normal horizontal spacing */
+  justify-items: center;
+ gap: 2rem;
+ margin: auto;
+}
+
+
+
+
+.tools img {
+    height: 40px;   
+   
+   
+  }
+
+ 
+
+
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: 7rem;
+  padding: 62px;
+  margin-top: 7rem;
+  
+
+}
+
+.rows { display: flex;
+  gap: 7rem;
+  justify-content: center;
+
+
+}
+
+
+
+.project-card {
+ display: flex;
+  flex-direction:column;
+  gap: 2rem;
+  align-items:flex-start;
+  flex-wrap: nowrap;
+max-width: 25%;
+border: #ccc;
+border-style: solid;
+padding: 1rem;
+}
+
+.project-text {
+  flex: 1; /* take up equal width */
+  min-width: 280px;
+  max-width: 300px;
+}
+
+.project-card img {
+ flex: 1;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  min-width: 280px;
+  
+}
+
+
+.project-card-reverse {
+  display: flex;
+  flex-direction:row-reverse;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap; /* allows stacking if needed */
+}
+
+.project-reverse-text {
+  flex: 1; /* take up equal width */
+  min-width: 280px;
+  max-width: 300px;
+}
+
+.project-card-reverse img {
+  flex: 1;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  min-width: 280px;
+}
+
+/* ABOUT ME */
+
+.about-me { 
+  display: flex;
+  flex-wrap: nowrap;
+  max-width: 90%;
+  margin-left: 112px;
+  margin-right: 112px;
+  margin-top:112px;
+  
+  
+
+
+}
+
+
+.about-me-container { 
+  display: flex;
+  flex-direction: column;
+  max-width: 40%;
+  justify-content: center;
+  gap:1rem;
+
+
+}
+
+
+
+.about-values { 
+  padding: 7rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: space-around;
+
+
+
+}
+
+.selfie { 
+  width:50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+}
+
+.about-me img { 
+
+  object-fit: cover;
+  max-width: 70%;
+
+
+}
+
+
+
+.what-i-do-container { 
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+ gap:2rem;
+  
+ 
+
+
+}
+
+.what-i-do{ display: flex;
+  flex-direction: column;
+ 
+  padding:0 62px 0 62px;
+  margin-bottom: 7rem;
+  margin-top: 180px; 
+  gap:180px;
+
+
+
+}
+
+.cores {
+  flex: 1;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  background: rgba(255, 255, 255, 0.15); /* semi-transparent white */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0.8rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* soft shadow */
+
+  padding: 32px 18px 18px 18px;
+  color: #111;
+  font-weight: 500;
+  text-align: left;
+  justify-content: flex-start;
+
+}
+
+.cores .icon {
+  width: 82px;         /* adjust as needed */
+  height: auto;
+  margin-bottom: 1rem; /* space below icon */
+  display: block;
+  margin-left: auto;
+  margin-right: auto; 
+  color: grey; /* centers the icon */
+}
+
+
+
+
+.stacked-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 224px; /* space between boxes */
+  
+}
+
+.stack-box {
+  flex: 1;
+  display:flex;
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 0.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  
+  font-weight: 500;
+  padding: 2rem;
+  text-align: left;
+  /* ensures equal height */
+  justify-content: flex-end;
+ 
+  
+}
+
+.stack-box-2 {
+  flex: 1;
+  display:flex;
+  flex-direction: column;
+
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(15px);
+ border-radius: 0.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  
+  
+  font-weight: 500;
+  padding: 2rem;
+  text-align: left;
+ 
+}
+
+.stack-left-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* keeps the <h1> on the left */
+  gap: 2rem;
+}
+
+.right-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-end;
+  
+}
+
+
+
+.right-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+
+.practices-container { 
+  
+  display:flex;
+  gap: 10rem;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: .7rem;
+  margin-right: 10%;
+  
+
+
+}
+
+.my-kaupapa { 
+  
+  display:flex;
+  flex-direction: column;
+ 
+  
+
+
+}
+
+.practices-container h1 { 
+  padding: 0;
+  margin: 0;
+
+
+}
+
+.stack-box h1 { color: white;
+  
+
+
+}
+
+/* .stack-box-2 h1, .stack-box-2 p, .stack-box-2 h5 { 
+  color:#686868;
+  
+
+
+} */
+
+
+
+
+  /* PROJECT SPACES */
+
+  
+  .circular-button:hover {
+    background-color: #f4f3ff; /* Optional: light hover effect */
+  }
+
+.stack-box-2 h5{ font-size: 1.5rem;
+  font-weight: 600;
+
+
+}
+
+
+
+
+
+
+.blank { width: 100%;
+  height: 20rem;
+
+
+}
+
+.project-stack-box {
+  flex: 1;
+  display:flex;
+  background: linear-gradient(
+    145deg,
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.3)
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 0.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  
+  font-weight: 500;
+  padding: 2rem;
+  text-align: left;
+  min-height: 500px; /* ensures equal height */
+  justify-content: flex-end;
+  max-height: 550px;
+  
+}
+
+.process-stack-box {
+  flex: 1;
+  display:flex;
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 0.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  
+  font-weight: 500;
+  padding: 2rem;
+  text-align: left;
+  min-height: 500px; /* ensures equal height */
+  justify-content: flex-end;
+  max-height: 1500px;
+  
+}
+
+.process-container { 
+  
+  display:flex;
+  flex-direction: row;
+  gap: 10rem;
+  gap: 3rem;
+  margin-top: 5rem;
+  
+
+
+}
+
+.process-challenges {
+  margin-top:5rem;
+
+
+}
+
+
+
+
+
+footer {
+
+    background: linear-gradient(90deg, #ffffff 0%, #ffedf4 50%, #ffd1e2 100%);
+  color: #333;
+  font-size: 0.9rem;
+  margin-top: 10rem;
+  flex-direction: column;
+  align-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 0;
+  padding-right: 0;
+  
+  
+}
+
+.footer-icon {
+   align-content: center;
+
+
+}
+
+.footer a {
+    text-decoration: none;
+    color: rgb(18, 18, 18);
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background 0.9s ease;
+    
+}
+
+.footer-horizontal { 
+
+  display: flex;
+  justify-content: space-around; /* or space-around/space-evenly */
+          
+  width: 100%;
+  padding: 2rem 5rem 2rem 5rem;                /* optional spacing from edges */
+  flex-wrap: wrap;                /* optional, helps on smaller screens */
+  gap: 1rem;  
+}
+
+.footer-icon img {
+
+  height: 30px;    
+    object-fit: contain;
+
+ 
+
+}
+
+.top { 
+
+  
+  text-align: center;
+  padding: 1rem;
+
+}
+
+
+.top a { 
+  border-style: solid;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2rem;
+
+}
+
+.footer-nav {
+   display: flex;
+   flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-evenly;
+}
+
+.footer-nav a {
+  font-size: 1rem;
+  text-decoration: none;
+  
+
+
+}
+
+.footer-contact p { 
+  
+  color: #333;
+
+
+}
+
+
+/* WORKS PAGE STARTS HERE */
+
+
+.works-section {
+
+  margin-top: 10rem;
+}
+
+.section-title { 
+  text-align: center;
+  margin-top: 7rem;
+  
+
+
+}
+
+.works-title { 
+  margin-left: 112px;
+  margin-right: 112px;
+
+
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 4rem;/* space between tiles */
+  margin-left:112px;
+  margin-right: 112px;
+}
+
+.works-grid-blank {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 4rem;/* space between tiles */
+  margin-left:112px;
+  margin-right: 112px;
+  margin-top: 56px;
+}
+
+
+.works-card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+
+.works-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.works-card-blank::before {
+  content: "";
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2; /* adjust to match your images */
+  background-color: #403f41; /* light grey */
+  border-radius: 8px; /* optional */
+}
+
+.works-card-blank img {
+  display: none;
+}
+
+
+.project-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.project-info .year {
+  color: gray;
+  font-size: 0.9rem;
+}
+
+ .info-container {
+   margin-bottom: 5rem;
+  }
+
+/* WORKS HERE */
+.works-hero {
+  margin-top: 4rem;
+  padding:62px 62px 0px 62px; /* smaller horizontal padding */
+  flex-wrap: wrap; /* allow wrapping on narrow screens */
+  box-sizing: border-box;
+}
+
+.works-hero-text {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  gap: 2rem; /* reduce gap for smaller screens */
+  margin-bottom: 0;
+  flex-wrap: wrap; /* allow wrapping */
+  max-width: 100%; /* prevent overflow */
+  box-sizing: border-box;
+  width: 30%;
+}
+
+.hero-paragraph,
+.hero-copy {
+  flex: 1 1 200px; /* flexible basis 200px, can grow and shrink */
+  min-width: 0; /* important to allow flex shrink */
+  margin-bottom: 0;
+}
+/*  */
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 42px 212px 0 212px
+}
+
+
+
+.gallery-grid {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 2rem;
+}
+
+.gallery-item.tall {
+  aspect-ratio: auto; /* override square ratio */
+    aspect-ratio: 1 / 2;
+}
+
+.large {
+
+  max-width: 50vw;
+}
+
+
+
+.gallery-block {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.gallery-item {
+  flex: 1;
+  aspect-ratio: 1 / 1; /* Or 1/1, 4/3, etc. based on your visual preference */
+  overflow: hidden;
+  position: relative; /* Needed for the image to absolutely fill it */
+}
+
+
+
+.gallery-banner {
+  max-width: 100%;
+
+
+
+}
+
+.gallery-banner img { 
+  object-fit: cover;
+  max-width: 100%;
+
+
+}
+
+.gallery-item img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.process-info { 
+  display: flex;
+  padding:32px;
+  gap:2rem;
+
+
+}
+
+
+.brief-container {
+  
+  display:flex;
+  width: 100%;         
+  margin: 0 auto;     
+  padding: 1rem;  
+  display: flex;
+  gap:4rem;
+ 
+ 
+
+}
+
+.caption { 
+  
+  width: 100%;         /* take up full width of container */    /* limit width on large screens */
+  margin: 0 auto;      /* center the box horizontally */ 
+  padding-top: 0;
+ 
+  flex:1;
+
+
+}
+
+.my-role {
+  
+
+  margin: 0 auto;     
+  padding-top: 0;
+   flex:1;
+
+
+}
+
+.challenges-right { 
+  max-width: 40vw;
+
+
+
+}
+
+.hero-img { 
+    width: 100%;
+  height: auto;
+  display: block;
+  
+}
+
+
+
+.question { 
+  margin:0;
+  padding:0;
+  font-size: 1rem;
+  color: #F1C5C2;
+
+
+}
+
+.placeholder-box {
+  width: 100%;
+  height: 100px;
+  background-color: none;/* optional light gray */
+  border: 2px dashed #ccc;   /* helps visualize the box */
+  margin-bottom: 2rem;
+}
+
+
+/* GSAP HERE */
+
+
+
+@media (max-width: 768px) {
+  /* General fixes */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* NAVIGATION */
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #656470;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    gap: 1.5rem;
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .contact-container {
+    display: none;
+  }
+
+  nav {
+    justify-content: space-between;
+  }
+
+  .nav-left {
+    display: none;
+  }
+
+  /* HERO SECTION */
+  .poupou-image {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+  .tiki {
+    width: 400px;
+  }
+}
+
+  .hero-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+
+ .info-box,
+  .info-box-2 {
+    max-width: 100vw; /* or just remove the max-width entirely */
+  }
+
+
+  .info-box, .info-box p {
+    
+    width: 100%;
+    text-align: center;
+   
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .info-image-container img {
+    position: static;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* SECTION - WHAT I DO */
+  @media (max-width: 768px) {
+  .what-i-do-container {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0;
+  }
+
+  .cores {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+
+  .cores p, .cores h5 {
+    text-align: center;
+  }
+}
+
+  /* SECTION LEFT & RIGHT */
+  .section-left,
+  .section-right {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .info-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .info-image-container,
+  .waharoa {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  /* STACK BOXES */
+  .stack-box {
+    flex-direction: column;
+
+    padding: 1.5rem;
+    gap: 2rem;
+  }
+
+  .stack-left-item {
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .tools {
+     display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 3 columns */
+  row-gap: 0.5rem;  /* tighter vertical spacing between rows */
+  column-gap: 1rem; /* normal horizontal spacing */
+  justify-items: center;
+ gap: 2rem;
+ margin: auto;
+    
+  }
+
+  .tools img {
+    height: 32px;
+  }
+
+  .practices-container {
+    flex-direction: column;
+    gap: 2rem;
+    margin-right: 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .practices-container p,
+  .practices-container h5,
+  .my-kaupapa {
+    text-align: center;
+    align-items: center;
+  }
+
+  /* SECTION COLUMN */
+  .section-column {
+    display: flex;
+    flex-direction: column;
+    padding: 7rem;
+    align-items: center;
+  }
+
+  .section-column div {
+    width: 80vw;
+  }
+
+  .section-column h2,
+  .section-column h4,
+  .section-column p {
+    text-align: center;
+  }
+
+  .section-img {
+    text-align: center;
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  /* PROJECTS */
+  .projects {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    padding: 2rem;
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* WORKS GRID */
+  .works-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    
+  }
+
+  .works-hero {
+    padding: 0 30px 62px 30px;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    justify-content: center;
+
+  }
+
+  /* FOOTER */
+  .footer {
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .footer-horizontal {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .footer-contact {
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 768px) {
+  .stack-box-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem;
+    width: 100%;
+  }
+}
+
+.about-me { 
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 90%;
+  margin-left: 112px;
+  margin-right: 112px;
+  
+  
+
+
+}
+
+.about-me-container { 
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  justify-content: center;
+  margin-top: 2rem;
+  gap:2rem;
+
+
+}
+
+.about-me-container h4 {
+  text-align: center;
+
+
+
+}
+
+.selfie { 
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+}
+
+.about-me img { 
+
+  object-fit: cover;
+  max-width: 70%;
+
+
+}
+
+.about-values { 
+  margin-top: 7rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: space-around;
+
+
+
+}
+
+
+.section-atea { 
+
+  display: flex;
+  flex-direction: row; /* ⬅ flips content-image order */
+  align-items: flex-end;
+  gap: 2rem;
+  padding: 5rem 8rem;
+  
+}
+
+.brief-container {
+  
+  display:flex;
+  flex:1;
+  flex-direction:column;
+  width: 100%;         /* take up full width of container */   /* limit width on large screens */
+  margin: 0 auto;      /* center the box horizontally */
+  padding: 1rem;  
+  display: flex;
+  gap:4rem;
+  text-align: center;
+ 
+
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 42px 2rem 0 2rem;
+}
+
+
+
+
+
+
+}
